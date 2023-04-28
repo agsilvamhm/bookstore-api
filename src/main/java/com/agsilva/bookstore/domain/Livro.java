@@ -12,6 +12,7 @@ public class Livro implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String titulo;
+    private String autor;
     private String texto;
     @ManyToOne
     @JoinColumn(name = "categoria_id")
@@ -21,9 +22,10 @@ public class Livro implements Serializable {
         super();
     }
 
-    public Livro(Integer id, String titulo, String texto, Categoria categoria) {
+    public Livro(Integer id, String titulo,String autor, String texto, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
+        this.autor = autor;
         this.texto = texto;
         this.categoria = categoria;
     }
@@ -58,6 +60,14 @@ public class Livro implements Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     @Override
